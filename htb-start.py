@@ -27,19 +27,19 @@ parser.add_argument('-nv', '--nmap-vuln', action='store_const',
 parser.add_argument('-nn', '--no-nmap', action='store_const',
                     const=True, default=False,
                     help='no nmap scan.')
-parser.add_argument('-gb', '--gobuster', type=bool, nargs=1,
-                    default=False,
+parser.add_argument('-gb', '--gobuster', action='store_const',
+                    const=True, default=False,
                     help="use the default gobuster command. conflicts with \"--feroxbuster\"")
-parser.add_argument('-fob', '--feroxbuster', type=bool,
-                    nargs=1, default=True,
+parser.add_argument('-fob', '--feroxbuster', action='store_const',
+                    const=False, default=True,
                     help="use the default feroxbuster command, default is ture.")
 parser.add_argument('--scan', metavar="scan_cmd", type=str, nargs=1, default="",
                     help="define a custom wed directory scan command to use.")
 parser.add_argument('--config', metavar="config_file", type=str, nargs=1,
                     default="~/.config/hackthebox_scripts/setup.json",
                     help="the config to use, default is, \"~/.config/hackthebox_scripts/setup.json\"")
-parser.add_argument('-s', '--searchsploit', type=bool,
-                    nargs=1, default=True,
+parser.add_argument('-s', '--searchsploit', action='store_const',
+                    const=False, default=True,
                     help="do a searchsploit scan. default is true")
 parser.add_argument('--extra', type=str, nargs=1,
                     default="",
