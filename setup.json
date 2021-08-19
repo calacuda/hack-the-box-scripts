@@ -1,0 +1,10 @@
+{
+    "gobust_cmd": "gobuster dir -w WORDLIST -u http://{name} -x .php -o {name}/web-dirs/{name}.gobuster {extra_cmd}",
+    "ferox_cmd": "feroxbuster -w WORDLIST -u http://{name} -x php -o {name}/web-dirs/{name}.fob -krn -t 100 {extra_cmd}",
+    "nmap_vuln": "nmap {name} --script vuln -oA {name}/nmap/vuln",
+    "nmap_scans": [
+	"nmap -sV -oA {name}/nmap/version {name}",
+	"nmap -T4 --reason -A --osscan-guess --version-all -oA {name}/nmap/{name} {name}"
+    ],
+    "searchsploit_cmd": "searchsploit --nmap {name}/nmap/{name}.xml"
+}
